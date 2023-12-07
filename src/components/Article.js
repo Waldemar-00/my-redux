@@ -4,7 +4,7 @@ const Article = () => {
   const dispatch = useDispatch()
   const article = useSelector(state => state.article.article)
   const articleOpen = () => {
-    dispatch({ type: 'ARTICLE_OPEN' })
+    dispatch('ARTICLE_OPEN')
   }
   return (
     <section>
