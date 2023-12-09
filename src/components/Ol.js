@@ -1,6 +1,7 @@
 import Li from './Li'
 import AddTodo from './AddTodo'
 import { useSelector } from 'react-redux'
+import { nanoid } from '@reduxjs/toolkit'
 const Ul = () => {
   const toDoArray = useSelector(state => state.todo.toDoArray)
   return (
@@ -9,7 +10,8 @@ const Ul = () => {
       <ol className="ol-list">
         {
           toDoArray.map(text => {
-            return < Li text={text} />
+            const mark = nanoid() 
+            return < Li key={mark} id={mark} text={text} />
           })
         }
       </ol>
