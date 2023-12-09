@@ -7,7 +7,7 @@ const Article = () => {
     dispatch('ARTICLE_OPEN')
   }
   return (
-    <section>
+    <section className="article">
       <article>{article}</article>
       <button onClick={articleOpen}>Open</button>
     </section>

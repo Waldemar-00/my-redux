@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import store from './store/store'
 import Counter from './components/Counter'
 import Article from './components/Article'
+import Ul from './components/Ol'
 function App() {
   return (
     <Provider store={store}>
@@ -10,7 +11,8 @@ function App() {
       <header className="App-header">
         <Counter/>
         </header>
-        <Article/>
+        <Article />
+        <Ul/>
       </div>
     </Provider>
   ) 
