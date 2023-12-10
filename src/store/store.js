@@ -3,6 +3,7 @@ import reducerCounter from './counterSlice'
 import reducerArticle from './articleSlice'
 import reducerTodo from './todoSlice'
 import { composeWithDevTools } from '@redux-devtools/extension'
+import { thunk } from 'redux-thunk'
 const rootReducer = combineReducers({
   counter: reducerCounter,
   article: reducerArticle,
@@ -11,5 +12,5 @@ const rootReducer = combineReducers({
 const stringCustomMiddleware = storeAPI => wrapDispatch => handleAction => { //! storeAPI({ dispatch, getState }) 
   return typeof handleAction === 'string' ? wrapDispatch({ type: handleAction }) : wrapDispatch(handleAction)
 } 
-const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(stringCustomMiddleware)) )
+const store = legacy_createStore(rootReducer, composeWithDevTools(applyMiddleware(stringCustomMiddleware, thunk)) )
 export default store
