@@ -1,27 +1,26 @@
 import './App.css' 
-import { Provider } from 'react-redux'
-import store from './store/store'
 import Counter from './components/Counter'
 import Article from './components/Article'
 import Ul from './components/Ol'
 import useFetch from './custom/useFetch'
+import {useSelector, useDispatch} from 'react-redux'
 function App() {
+  const dispatch = useDispatch()
+  const data = useSelector(state => state.heroes.heroes)
   const { customFetch } = useFetch() 
   customFetch('https://admin-panel-fcc34-default-rtdb.firebaseio.com/heroes.json')
-    .then(response => console.log(response))
+    .then(response => dispatch({ type: 'HEROES_FETCH', payload: response }))
   return (
-    <Provider store={store}>
     <div className="App">
       <header className="App-header">
         <Counter/>
       </header>
         <Article />
         <Ul />
-        <div>
-          {/* {JSON.stringify(data)} */}
-        </div>
+      <ol className="ol-list">
+          {data.map(dt => <li id={dt.id} key={dt.id}>{dt.name}</li>)}
+        </ol>
     </div>
-    </Provider>
   ) 
 }
 
