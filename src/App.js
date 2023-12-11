@@ -10,7 +10,7 @@ function App() {
   const data = useSelector(state => state.heroes.heroes)
   const { customFetch } = useFetch() 
   useEffect(() => {
-    dispatch(() => customFetch(dispatch, 'HEROES_FETCH'))
+    dispatch(() => customFetch('HEROES_FETCH', 'https://admin-panel-fcc34-default-rtdb.firebaseio.com/heroes.json'))
   }, [customFetch, dispatch])
   return (
     <div className="App">

@@ -1,9 +1,10 @@
 import { useCallback } from "react"
+import { useDispatch } from "react-redux"
 const useFetch = () => {
+  const dispatch = useDispatch()
   const customFetch = useCallback(async (
-    dispatch,
     type,
-    URL = 'https://admin-panel-fcc34-default-rtdb.firebaseio.com/heroes.json',
+    URL,
     method = 'GET',
     headers = { 'Content-type': 'application/json' },
     body = null) => {
@@ -12,7 +13,7 @@ const useFetch = () => {
       headers,
       body
     }).then(response => response.json()).then(data => dispatch({ type: type, payload: data }))
-  }, [])
+  }, [dispatch])
   return {customFetch}
 }
 export default useFetch
