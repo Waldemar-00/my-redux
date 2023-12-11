@@ -4,7 +4,7 @@ const reducerCounter = (state = initialState, action) => {
     case 'COUNTER_INCREMENT':
       return {
         ...state,
-        counter: +state.counter + 1
+        counter: +state.counter + action.payload
       }
     default:
       return state

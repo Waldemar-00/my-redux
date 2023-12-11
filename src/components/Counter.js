@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
+import { counter_increment } from '../actions/actions'
 const Counter = () => {
   const dispatch = useDispatch()
   const counter = useSelector(state => state.counter.counter)
   const incrementCounter = () => {
-    dispatch({ type: 'COUNTER_INCREMENT' })
+    dispatch( counter_increment(2) )
   }
   return (
     <>

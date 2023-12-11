@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 const useFetch = () => {
   const dispatch = useDispatch()
   const customFetch = useCallback(async (
-    type,
+    actionCreater,
     URL,
     method = 'GET',
     headers = { 'Content-type': 'application/json' },
@@ -12,7 +12,7 @@ const useFetch = () => {
       method,
       headers,
       body
-    }).then(response => response.json()).then(data => dispatch({ type: type, payload: data }))
+    }).then(response => response.json()).then(data => dispatch(actionCreater(data)))
   }, [dispatch])
   return {customFetch}
 }

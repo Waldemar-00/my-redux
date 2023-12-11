@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { add_todo } from'../actions/actions'
 const AddTodo = () => {
   const toDoArray = useSelector(state => state.todo.toDoArray)
   const dispatch = useDispatch()
   const addTodo = () => {
-    dispatch({ type: 'ADD_TODO', payload: [ ...toDoArray, document.querySelector('#todo').value ]})
+    dispatch(add_todo([...toDoArray, document.querySelector('#todo').value]))
   }
   return (
     <div className="block-texarea">
