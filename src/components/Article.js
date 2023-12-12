@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { article_open } from '../actions/actions'
+import { article_open } from '../store/articleSlice'
 const Article = () => {
   const dispatch = useDispatch()
   const article = useSelector(state => state.article.article)

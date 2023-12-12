@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { add_todo } from'../actions/actions'
+import { add_todo } from'../store/todoSlice'
 const AddTodo = () => {
   const toDoArray = useSelector(state => state.todo.toDoArray)
   const dispatch = useDispatch()

@@ -5,7 +5,7 @@ import Ul from './components/Ol'
 import useFetch from './custom/useFetch'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-import { heroes_fetch } from './actions/actions'
+import { heroes_fetch } from './store/heroesSlice'
 function App() {
   const dispatch = useDispatch()
   const data = useSelector(state => state.heroes.heroes)
