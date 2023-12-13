@@ -8,11 +8,13 @@ const useFetch = () => {
     method = 'GET',
     headers = { 'Content-type': 'application/json' },
     body = null) => {
-    return fetch(URL, {
+    const response = await fetch(URL, {
       method,
       headers,
       body
-    }).then(response => response.json()).then(data => dispatch(actionCreater(data)))
+    })
+    const data = await response.json()
+    return dispatch(actionCreater(data))
   }, [dispatch])
   return {customFetch}
 }
