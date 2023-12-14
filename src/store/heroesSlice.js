@@ -28,7 +28,6 @@ const heroesSlice = createSlice({
       .addCase(asyncThunkHeroesSlice.rejected, state => {
         state.heroes = 'REJECT!!!'
       })
-      .addDefaultCase(() => { })
   }
 })
 export const { heroes_fetch } = heroesSlice.actions

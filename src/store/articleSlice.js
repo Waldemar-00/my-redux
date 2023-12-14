@@ -2,17 +2,6 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   article: ''
 }
-// const reducerArticle = (state = initialState, action) => {
-  // switch (action.type) {
-    // case 'ARTICLE_OPEN': 
-      // return {
-        // ...state,
-        // article: action.payload
-      // }  
-    // default:
-      // return state
-  // }
-// }
 const reducerSlice = createSlice({
   name: 'reducerArticle',
   initialState,

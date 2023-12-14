@@ -1,17 +1,15 @@
 import Li from './Li'
 import AddTodo from './AddTodo'
 import { useSelector } from 'react-redux'
-import { nanoid } from '@reduxjs/toolkit'
 const Ul = () => {
-  const toDoArray = useSelector(state => state.todo.toDoArray)
+  const entities = useSelector(state => state.todo.entities)
   return (
     <section className="ul">
       <AddTodo/>
       <ol className="ol-list">
         {
-          toDoArray.map(text => {
-            const mark = nanoid() 
-            return < Li key={mark} id={mark} text={text} />
+          Object.values(entities).map(entity => { 
+            return < Li key={entity.id} id={entity.id} text={entity.entity} />
           })
         }
       </ol>

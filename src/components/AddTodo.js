@@ -1,10 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { add_todo } from'../store/todoSlice'
+import { useDispatch } from 'react-redux'
+import { add_todo } from '../store/todoSlice'
+import { nanoid } from '@reduxjs/toolkit'
 const AddTodo = () => {
-  const toDoArray = useSelector(state => state.todo.toDoArray)
   const dispatch = useDispatch()
   const addTodo = () => {
-    dispatch(add_todo([...toDoArray, document.querySelector('#todo').value]))
+    const id = nanoid()
+    dispatch(add_todo({ id, entity: document.querySelector('#todo').value }))
   }
   return (
     <div className="block-texarea">
