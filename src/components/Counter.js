@@ -4,7 +4,7 @@ const Counter = () => {
   const dispatch = useDispatch()
   const counter = useSelector(state => state.counter.counter)
   const incrementCounter = () => {
-    dispatch( counter_increment(2) )
+    dispatch(counter_increment(2))
   }
   return (
     <>

@@ -4,8 +4,7 @@ import { nanoid } from '@reduxjs/toolkit'
 const AddTodo = () => {
   const dispatch = useDispatch()
   const addTodo = () => {
-    const id = nanoid()
-    dispatch(add_todo({ id, entity: document.querySelector('#todo').value }))
+    dispatch(add_todo({ id: nanoid() , entity: document.querySelector('#todo').value }))
   }
   return (
     <div className="block-texarea">
