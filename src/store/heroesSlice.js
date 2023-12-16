@@ -1,13 +1,13 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-
-export const asyncThunkHeroesSlice = createAsyncThunk(
-  'reducerHeroes/heroesThunk',
-  ({ url, method = 'GET', headers = { 'Content-type': 'application/json' }, body = null }) => {
-    return fetch(url, { method, headers, body })
-      .then(response => response.json())
-      .then(data => data)
-  }
-)
+import { createSlice } from '@reduxjs/toolkit'
+import  { asyncThunkFetch } from '../custom/asyncThunkFethc' 
+// export const asyncThunkHeroesSlice = createAsyncThunk(
+  // 'reducerHeroes/heroesThunk',
+  // ({ url, method = 'GET', headers = { 'Content-type': 'application/json' }, body = null }) => {
+    // return fetch(url, { method, headers, body })
+      // .then(response => response.json())
+      // .then(data => data)
+  // }
+// )
 const initialState = { heroes: [] }
 const heroesSlice = createSlice({
   name: 'reducerHeroes',
@@ -19,13 +19,13 @@ const heroesSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(asyncThunkHeroesSlice.pending, state => {
+      .addCase(asyncThunkFetch.pending, state => {
         state.heroes = 'PENDING!!!'
       })
-      .addCase(asyncThunkHeroesSlice.fulfilled, (state, action) => {
+      .addCase(asyncThunkFetch.fulfilled, (state, action) => {
         state.heroes = action.payload
       })
-      .addCase(asyncThunkHeroesSlice.rejected, state => {
+      .addCase(asyncThunkFetch.rejected, state => {
         state.heroes = 'REJECT!!!'
       })
   }
