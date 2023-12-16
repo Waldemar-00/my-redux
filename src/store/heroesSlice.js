@@ -28,6 +28,8 @@ const heroesSlice = createSlice({
       .addCase(asyncThunkFetch.rejected, state => {
         state.heroes = 'REJECT!!!'
       })
+      .addMatcher(() => {}) //! similar a finally
+      .addDefaultCase(() => {}) //! similar a default case
   }
 })
 export const { heroes_fetch } = heroesSlice.actions
