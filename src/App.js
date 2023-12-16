@@ -14,7 +14,7 @@ function App() {
     // dispatch(() => customFetch(heroes_fetch, 'https://admin-panel-fcc34-default-rtdb.firebaseio.com/heroes.json'))
   // }, [customFetch, dispatch])
   useEffect(() => {
-    dispatch(asyncThunkHeroesSlice())
+    dispatch(asyncThunkHeroesSlice({ url: 'https://admin-panel-fcc34-default-rtdb.firebaseio.com/heroes.json' }))
   }, [dispatch])
   return (
     <div className="App">

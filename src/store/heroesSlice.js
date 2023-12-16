@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 export const asyncThunkHeroesSlice = createAsyncThunk(
   'reducerHeroes/heroesThunk',
-  () => {
-    return fetch('https://admin-panel-fcc34-default-rtdb.firebaseio.com/heroes.json')
+  ({ url, method = 'GET', headers = { 'Content-type': 'application/json' }, body = null }) => {
+    return fetch(url, { method, headers, body })
       .then(response => response.json())
       .then(data => data)
   }
