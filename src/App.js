@@ -2,7 +2,6 @@ import './App.css'
 import Counter from './components/Counter'
 import Article from './components/Article'
 import Ul from './components/Ol'
-// import useFetch from './custom/useFetch'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { asyncThunkFetch } from './custom/asyncThunkFethc' //heroes_fetch

@@ -5,7 +5,7 @@ const reducerSlice = createSlice({
   name: 'reducerArticle',
   initialState,
   reducers: {
-    article_open(state, action) { adapter.setOne(state, action.payload ) }
+    article_open(state, action) { adapter.upsertOne(state, action.payload ) }
   }
 })
 export const { article_open } = reducerSlice.actions
