@@ -9,7 +9,7 @@ function App() {
   const dispatch = useDispatch()
   const data = useSelector(state => state.heroes.heroes)
   useEffect(() => {
-    dispatch(asyncThunkFetch({ url: 'https://admin-panel-fcc34-default-rtdb.firebaseio.com/heroes.json' }))
+    dispatch(asyncThunkFetch({ url: 'https://fake-api-dfaa6-default-rtdb.firebaseio.com/heroes.json' }))
   }, [dispatch])
   return (
     <div className="App">

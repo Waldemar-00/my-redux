@@ -1,13 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import  { asyncThunkFetch } from '../custom/asyncThunkFethc' 
-// export const asyncThunkHeroesSlice = createAsyncThunk(
-  // 'reducerHeroes/heroesThunk',
-  // ({ url, method = 'GET', headers = { 'Content-type': 'application/json' }, body = null }) => {
-    // return fetch(url, { method, headers, body })
-      // .then(response => response.json())
-      // .then(data => data)
-  // }
-// )
 const initialState = { heroes: [] }
 const heroesSlice = createSlice({
   name: 'reducerHeroes',
