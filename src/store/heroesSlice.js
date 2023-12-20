@@ -20,7 +20,9 @@ const heroesSlice = createSlice({
       .addCase(asyncThunkFetch.rejected, state => {
         state.heroes = 'REJECT!!!'
       })
-      .addMatcher(() => {}) //! similar a finally
+      .addMatcher(asyncThunkFetch.settled, state => {
+        typeof state.heroes === 'string' ? state.heroes = state.heroes + ' Settled' : state.heroes = [...state.heroes, {id: 'settled', name: 'Settled'}]
+      }) //! similar a finally}
       .addDefaultCase(() => {}) //! similar a default case
   }
 })
