@@ -1,9 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 export const asyncThunkFetch = createAsyncThunk(
-    'reducerHeroes/heroesThunk',
-    ({ url, method = 'GET', headers = { 'Content-type': 'application/json' }, body = null }) => {
-      return fetch(url, { method, headers, body })
-        .then(response => response.json())
-        .then(data => data)
+    'request/fetchThunk',
+  async ({ url, method = 'GET', headers = { 'Content-type': 'application/json' }, body = null }) => {
+      try {
+        const response = await fetch(url, { method, headers, body })
+        const data = await response.json()
+        return data  
+      } catch (error) {
+        console.error(error)
+        return error.message
+      }
     }
   )
