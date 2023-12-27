@@ -7,7 +7,8 @@ export const api_slice = createApi({
   endpoints: builder => ({
     getHeroes: builder.query({
       query: () => '/heroes.json',
-      providesTags: ['heroesAction']
+      keepUnusedDataFor: 5, //! it is default value 60
+      providesTags: ['heroesAction'],
     }),
     deleteHero: builder.mutation({
       query: (documentId) => ({

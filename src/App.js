@@ -25,7 +25,7 @@ function App() {
       <ol className="ol-list">
         {
           typeof data === 'object' ?
-            data.map(dt => {
+            Object.values(data).map(dt => {
               const id = dt.id
               return <li id={id} key={id} onClick={() => onQueryStarted(id)}>{dt.name}</li>
             }) :
